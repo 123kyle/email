@@ -3,7 +3,10 @@ package email
 import "gopkg.in/gomail.v2"
 
 type GoMail struct {
-	Client
+	Username string
+	Password string
+	Host     string
+	Port     int
 }
 
 func (g GoMail) Send(recipients []string, subject, body, file string) error {
