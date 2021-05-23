@@ -9,14 +9,14 @@ import (
 	innerEmail "github.com/jordan-wright/email"
 )
 
-type Email struct {
+type HumanEmailClient struct {
 	Username string
 	Password string
 	Host     string
 	Port     int
 }
 
-func (e Email) Send(recipients []string, subject, body, file string) error {
+func (e HumanEmailClient) Send(recipients []string, subject, body, file string) error {
 	emailClient := innerEmail.NewEmail()
 	emailClient.From = e.Username
 	emailClient.To = recipients

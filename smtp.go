@@ -9,14 +9,14 @@ import (
 	"strings"
 )
 
-type Client struct {
+type SmtpEmailClient struct {
 	Username string
 	Password string
 	Host     string
 	Port     int
 }
 
-func (c Client) Send(recipients []string, subject string, body string) error {
+func (c SmtpEmailClient) Send(recipients []string, subject string, body string) error {
 	auth := smtp.PlainAuth("", c.Username, c.Password, c.Host)
 	addr := net.JoinHostPort(c.Host, strconv.Itoa(c.Port))
 	var msg bytes.Buffer

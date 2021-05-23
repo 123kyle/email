@@ -2,14 +2,14 @@ package email
 
 import "gopkg.in/gomail.v2"
 
-type GoMail struct {
+type GoMailClient struct {
 	Username string
 	Password string
 	Host     string
 	Port     int
 }
 
-func (g GoMail) Send(recipients []string, subject, body, file string) error {
+func (g GoMailClient) Send(recipients []string, subject, body, file string) error {
 	m := gomail.NewMessage()
 	m.SetHeader("From", g.Username)
 	m.SetHeader("To", recipients...)
