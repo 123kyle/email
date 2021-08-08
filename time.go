@@ -15,8 +15,8 @@ func (u UTCTime) MarshalJSON() ([]byte, error) {
 	return []byte(fmt.Sprintf(`"%s"`, u.Format(utcFormat))), nil
 }
 
-func (t *UTCTime) UnmarshalJSON(data []byte) (err error) {
-	t.Time, err = time.Parse(fmt.Sprintf(
+func (u *UTCTime) UnmarshalJSON(data []byte) (err error) {
+	u.Time, err = time.Parse(fmt.Sprintf(
 		`"%s"`, utcFormat), string(data))
 	return err
 }
