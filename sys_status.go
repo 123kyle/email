@@ -3,6 +3,7 @@ package email
 import (
 	"github.com/shirou/gopsutil/v3/disk"
 	"github.com/shirou/gopsutil/v3/load"
+	"github.com/shirou/gopsutil/v3/mem"
 	"os"
 )
 
@@ -25,4 +26,12 @@ func DiskUsage() (float64, error) {
 		return -1, err
 	}
 	return usage.UsedPercent, nil
+}
+
+func MemUsage() (float64, error) {
+	vMemStat, err := mem.VirtualMemory()
+	if err != nil {
+		return -1, err
+	}
+	return vMemStat.UsedPercent, nil
 }
