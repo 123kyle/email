@@ -1,9 +1,8 @@
-package heap
+package email
 
 import "errors"
 
 type GreaterHeap[T comparable] struct {
-	Data       []T
 	Limit      int
 	Size       int
 	Map        map[T]int
