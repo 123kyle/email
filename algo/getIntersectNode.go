@@ -1,4 +1,4 @@
-package main
+package algo
 
 type Node struct {
 	Val  int
